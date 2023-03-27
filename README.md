@@ -10,6 +10,7 @@
 - removing character or word from text
 - replacing character or word with desired one
 - language detection
+- words as list(cleaning special characters like ". , : etc.")
 
 ## installation
 ````
