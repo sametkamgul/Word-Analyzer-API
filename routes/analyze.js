@@ -8,8 +8,8 @@ router.get('/', async (req, res) => {
 
     console.log('/analyze is requested');
 
-    const data = req.query.text;
-    const searchKeyword = req.query.searchKeyword;
+    const data = req.body.text;
+    const searchKeyword = req.body.search;
 
     if (data !== null && data !== undefined && data !== '') {
         result = await analyzer.analyze(data, searchKeyword);
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         return;
     }
 
-    res.json({ status: 'error', message: 'text query parameter is missing!' });
+    res.json({ status: 'error', message: '<text> parameter is missing in the request of the body!' });
 });
 
 module.exports = router;
