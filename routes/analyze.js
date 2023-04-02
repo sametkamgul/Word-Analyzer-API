@@ -1,25 +1,33 @@
 const express = require('express');
-const analyzer = require('../lib/analyzer');
+const analyzer = require('../lib/helpers/analyzeHelper');
+const { isEmpty } = require('../lib/helpers/generalHelper');
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
     let result = {};
+    let statusCode;
 
     console.log('/analyze is requested');
 
     const data = req.body.text;
-    const searchKeyword = req.body.search;
+    const searchKeywords = req.body.searchKeywords;
+    const config = req.body.config;
 
-    if (data !== null && data !== undefined && data !== '') {
-        result = await analyzer.analyze(data, searchKeyword);
+    if (!isEmpty(data)) {
+        result = await analyzer.analyze(data, searchKeywords, config);
 
-        res.json(result);
+        statusCode = 200;
+    } else {
+        result = {
+            status: 'error',
+            message: '<text> parameter is missing in the request of the body!',
+        };
 
-        return;
+        statusCode = 400;
     }
 
-    res.json({ status: 'error', message: '<text> parameter is missing in the request of the body!' });
+    res.status(statusCode).json(result);
 });
 
 module.exports = router;
