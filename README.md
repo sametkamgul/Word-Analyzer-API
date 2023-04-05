@@ -11,6 +11,7 @@
 -   number of repitition of character
 -   used special characters
 -   hashtag extraction
+-   mention extraction
 -   finding a character or word in the text.
 -   array of words
 
@@ -32,11 +33,15 @@ npm install
 ```
 
 ## tests
+
 ### run tests
+
 ```
 npm run test
 ```
+
 ### run test coverage
+
 ```
 npm run test:coverage
 ```
@@ -49,6 +54,7 @@ npm run test:coverage
     characters: {},     // characters found in the given text
     words: {},      // words found in the given text
     hashtag: {},        // hashtag found in the given text
+    mention: {},        // mention found in the given text
     sentences: {},      // sentences found in the given text
     search: {},     // search results found in the given text
     numbers: {}     // numbers found in the given text
@@ -103,6 +109,15 @@ npm run test:coverage
 {
     withoutHashChar: []     // hashtag word without hash(#) character
     withHashChar: []        // hashtag word with hash(#) character
+}
+```
+
+### mention object detail
+
+```
+{
+    withoutAtChar: []     // mention word without at(@) character
+    withAtChar: []        // mention word with at(@) character
 }
 ```
 
@@ -169,8 +184,9 @@ numbers
 
 ```
 {
-    "text": "It is a text with #hashtag with 2 #one. 1.6 ass Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "search": "an,An"
+    "text": "It is a text with #hashtag with 2 #one. 1.6 Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
+    "searchKeywords": "text",
+    "config": ""
 }
 ```
 
@@ -179,9 +195,19 @@ numbers
 ```
 {
     "language": {
-        "code": "English",
-        "name": "eng"
+        "name": "English",
+        "code": "eng"
     },
+    "search": [
+        {
+            "keyword": "text",
+            "exactCount": 1,
+            "similarCount": 1,
+            "sentences": [
+                "It is a text with #hashtag with 2 #one"
+            ]
+        }
+    ],
     "characters": {
         "array": {
             "withoutWhiteSpace": {
@@ -444,9 +470,50 @@ numbers
             "x": 1
         }
     },
+    "specialChars": {
+        "array": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " ",
+            "#",
+            " ",
+            " ",
+            " ",
+            "#",
+            ".",
+            " ",
+            ".",
+            " ",
+            " ",
+            " ",
+            " ",
+            " ",
+            " ",
+            "#",
+            ".",
+            " ",
+            " ",
+            " ",
+            " ",
+            ".",
+            " ",
+            " ",
+            " ",
+            " ",
+            "."
+        ],
+        "length": 31,
+        "map": {
+            " ": 23,
+            "#": 3,
+            ".": 5
+        }
+    },
     "words": {
         "badWords": {
-            "list": [],
+            "array": [],
             "length": 0
         },
         "length": 24,
@@ -459,14 +526,14 @@ numbers
             "#hashtag",
             "with",
             "2",
-            "#one.",
+            "#one",
             "1.6",
             "Even",
             "with",
             "the",
             "third",
             "one",
-            "#forallworld.",
+            "#forallworld",
             "And",
             "I",
             "have",
@@ -474,7 +541,7 @@ numbers
             "dollars",
             "and",
             "5",
-            "pennies."
+            "pennies"
         ],
         "map": {
             "2": 1,
@@ -485,33 +552,37 @@ numbers
             "text": 1,
             "with": 3,
             "#hashtag": 1,
-            "#one.": 1,
+            "#one": 1,
             "1.6": 1,
             "Even": 1,
             "the": 1,
             "third": 1,
             "one": 1,
-            "#forallworld.": 1,
+            "#forallworld": 1,
             "And": 1,
             "I": 1,
             "have": 1,
             "100.5": 1,
             "dollars": 1,
             "and": 1,
-            "pennies.": 1
+            "pennies": 1
         }
     },
     "hashtag": {
         "withHashChar": [
             "#hashtag",
-            "#one.",
-            "#forallworld."
+            "#one",
+            "#forallworld"
         ],
         "withoutHashChar": [
             "hashtag",
-            "one.",
-            "forallworld."
+            "one",
+            "forallworld"
         ]
+    },
+    "mention": {
+        "withAtChar": [],
+        "withoutAtChar": []
     },
     "sentences": {
         "array": [
