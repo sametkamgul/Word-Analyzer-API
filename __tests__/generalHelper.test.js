@@ -166,25 +166,13 @@ test('getCharactersMap should return an valid map of object', () => {
 });
 
 test('getSentences should return an valid array', () => {
-    let data = 'This is an sentence. This is another sentence.';
-    let expectedResult = ['This is an sentence', 'This is another sentence'];
+    let data = 'This is a sentence. This is another sentence.';
+    let expectedResult = ['This is a sentence', 'This is another sentence'];
 
     let actualResult = generalHelper.getSentences(data);
 
     expect(actualResult).toEqual(expectedResult);
 });
-
-// test('getSpecialCharacters should return an valid object', () => {
-//     let data = 'This text has special character like: # and $';
-//     let expectedResult = {
-//         array: ['#', '$'],
-//         length: 2,
-//     };
-
-//     expect(generalHelper.getSpecialCharacters(data)).toEqual(
-//         expectedResult
-//     );
-// });
 
 test('findIntegers should return an valid array', () => {
     let data = 'this text has 100 integer';

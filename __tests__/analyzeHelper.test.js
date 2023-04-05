@@ -87,6 +87,10 @@ test('analyze should return all attribute object for empty config', async () => 
             withHashChar: [],
             withoutHashChar: [],
         },
+        mention: {
+            withAtChar: [],
+            withoutAtChar: []
+        },
         sentences: {
             array: ['this is a text'],
             length: 1,
@@ -238,6 +242,26 @@ test('analyze should return an object for requested config:hashtag', async () =>
         hashtag: {
             withHashChar: ['#sample'],
             withoutHashChar: ['sample'],
+        },
+    };
+
+    let actualResult = await analyzeHelper.analyze(
+        text,
+        searchKeywords,
+        config
+    );
+
+    expect(actualResult).toEqual(expectedResult);
+});
+
+test('analyze should return an object for requested config:mention', async () => {
+    let text = 'this is a text with @sample mention.';
+    let config = 'mention';
+    let searchKeywords = '';
+    let expectedResult = {
+        mention: {
+            withAtChar: ['@sample'],
+            withoutAtChar: ['sample'],
         },
     };
 
