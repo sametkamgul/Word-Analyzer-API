@@ -1,4 +1,5 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const analyze = require('./routes/analyze');
 const update = require('./routes/update');
 const notAllowed = require('./routes/notAllowed');
@@ -14,8 +15,4 @@ app.use('/update', update);
 app.use('/search', search);
 app.use('/*', notAllowed);
 
-var PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-    console.log('app is started on:', PORT);
-});
+module.exports.handler = serverless(app);
