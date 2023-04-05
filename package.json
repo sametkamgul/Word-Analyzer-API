@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node server.js",
+        "start": "netlify-lambda serve src",
+        "build": "netlify-lambda build src",
         "dev": "nodemon server.js",
         "test": "jest",
         "test:watch": "jest --watch",
@@ -15,6 +16,7 @@
     "dependencies": {
         "badwords-list": "^1.0.0",
         "express": "^4.18.2",
+        "netlify-lambda": "^2.0.16",
         "serverless-http": "^3.2.0",
         "text-language-detector": "^1.0.7"
     },
