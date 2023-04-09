@@ -1,4 +1,4 @@
-const searchHelper = require('../lib/helpers/searchHelper');
+const searchHelper = require('../src/lib/helpers/searchHelper');
 
 test('findText should return an object for no result', () => {
     let data = 'this is a text';
@@ -60,7 +60,7 @@ test('findText should return array for multiple result found', () => {
                 sentences: ['this is a text'],
             },
             similar: {
-                sentences: ['this is a text'],
+                sentences: [],
             },
         },
         {

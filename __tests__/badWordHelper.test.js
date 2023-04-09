@@ -1,4 +1,4 @@
-const badWordHelper = require('../lib/helpers/badWordHelper');
+const badWordHelper = require('../src/lib/helpers/badWordHelper');
 
 test('hasBadWord should return an object with empty array and length:0', () => {
     let words = 'this is an text.';

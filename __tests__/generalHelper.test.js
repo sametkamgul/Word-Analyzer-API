@@ -1,4 +1,4 @@
-const generalHelper = require('../lib/helpers/generalHelper');
+const generalHelper = require('../src/lib/helpers/generalHelper');
 
 test('wordCounter should return a valid value', () => {
     let data = 'this is an example text';

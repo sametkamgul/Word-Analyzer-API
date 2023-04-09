@@ -1,4 +1,4 @@
-const constants = require('../lib/constants/constants');
+const constants = require('../src/lib/constants/constants');
 
 test('constants->analyzeResponseParams should be existed', () => {
     let expectedResult = {

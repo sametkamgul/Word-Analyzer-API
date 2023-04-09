@@ -1,4 +1,4 @@
-const languageDetectionHelper = require('../lib/helpers/languageDetectionHelper');
+const languageDetectionHelper = require('../src/lib/helpers/languageDetectionHelper');
 
 test('detect function should detect language of the text', async () => {
     let text =

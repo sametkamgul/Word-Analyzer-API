@@ -42,16 +42,28 @@ const findText = (text, searchKeywords) => {
 
                 // similar result sentence assign
                 sentences.filter((s) => {
-                    if (!s.includes(keyword) && s.toLowerCase().includes(keyword.toLowerCase())) {
-                        similarSentences.push(s);
-                    }
+                    let words = generalHelper.getWords(s);
+
+                    words.forEach((w) => {
+                        if (
+                            w.includes(keyword) &&
+                            w !== keyword &&
+                            w.toLowerCase().includes(keyword.toLowerCase())
+                        ) {
+                            similarSentences.push(s);
+                        }
+                    });
                 });
 
                 // exact result sentence assign
                 sentences.filter((s) => {
-                    if (s.includes(keyword)) {
-                        exactSentences.push(s);
-                    }
+                    let words = generalHelper.getWords(s);
+
+                    words.forEach((w) => {
+                        if (w === keyword) {
+                            exactSentences.push(s);
+                        }
+                    });
                 });
 
                 searchResult.exact.sentences = exactSentences;

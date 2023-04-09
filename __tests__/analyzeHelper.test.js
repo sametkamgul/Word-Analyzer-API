@@ -1,4 +1,4 @@
-const analyzeHelper = require('../lib/helpers/analyzeHelper');
+const analyzeHelper = require('../src/lib/helpers/analyzeHelper');
 
 test('analyze should return all attribute object for empty config', async () => {
     let text = 'this is a text.';
