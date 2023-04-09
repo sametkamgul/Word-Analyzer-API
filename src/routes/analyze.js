@@ -4,7 +4,7 @@ const { isEmpty } = require('../lib/helpers/generalHelper');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     let result = {};
     let statusCode;
 
