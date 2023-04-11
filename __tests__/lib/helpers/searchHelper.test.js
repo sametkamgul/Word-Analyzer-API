@@ -1,4 +1,4 @@
-const searchHelper = require('../src/lib/helpers/searchHelper');
+const searchHelper = require('../../../src/lib/helpers/searchHelper');
 
 test('findText should return an object for no result', () => {
     let data = 'this is a text';
