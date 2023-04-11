@@ -1,19 +1,19 @@
-# words analyzer API: girilen cümle üzerinde analiz yapılması.
+# words analyzer API: analyze tool api
 
 ## features
 
 ### analyze
 
 -   bad word analyze
--   how many words and character does it have
 -   language detection
--   number of repitition of words
--   number of repitition of character
+-   words map (number of repitition of words)
+-   characters map (number of repitition of character)
 -   used special characters
 -   hashtag extraction
 -   mention extraction
 -   finding a character or word in the text.
 -   array of words
+-   array of sentences
 
 ### manipulation
 
@@ -178,7 +178,7 @@ numbers
 
 ## endpoints
 
-### GET /analyze
+### POST /analyze
 
 -   example request body JSON:
 
@@ -613,49 +613,16 @@ numbers
 }
 ```
 
-### GET /search - search a text or character in the given text
-
--   example request body as JSON:
-
-```
-{
-    "text": "It is a text with #hashtag with 2 #one. 1.6 ass Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "searchKeywords": "an,An"
-}
-```
-
--   example response JSON
-
-```
-[
-    {
-        "keyword": "an",
-        "exactCount": 0,
-        "similarCount": 1,
-        "sentences": [
-            "5 dollars and 5 pennies"
-        ]
-    },
-    {
-        "keyword": "An",
-        "exactCount": 0,
-        "similarCount": 1,
-        "sentences": [
-            "And I have 100"
-        ]
-    }
-]
-```
-
-### POST /update/characters - updating characters with new one
+### POST /update
+#### updating characters or words with new one
 
 -   example request body JSON:
 
 ```
 {
-    "text": "It is a text with #hashtag with 2 #one. 1.6 Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "characters": "a,i",
-    "newCharacter": "."
+    "text": "This is a sample text.",
+    "keywords": "is, a",
+    "newKeyword": "*"
 }
 ```
 
@@ -663,20 +630,19 @@ numbers
 
 ```
 {
-    "characters": "a,i",
-    "newCharacter": ".",
-    "text": "It .s . text w.th #h.sht.g w.th 2 #one. 1.6. Even w.th the th.rd one #for.llworld. And I h.ve 100.5 doll.rs .nd 5 penn.es."
+    "keywords": "is, a",
+    "newKeyword": "*",
+    "text": "Th* * * s*mple text."
 }
 ```
 
-### POST /update/characters - removing characters
-
+#### removing characters or words with new one
 -   example request body JSON:
 
 ```
 {
-    "text": "It is a text with #hashtag with 2 #one. 1.6. Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "characters": "a,i"
+    "text": "This is a sample text.",
+    "keywords": "is, a"
 }
 ```
 
@@ -684,54 +650,9 @@ numbers
 
 ```
 {
-    "characters": "a,i",
-    "text": "It s a text wth #hashtag wth 2 #one. 1.6. Even wth the thrd one #forallworld. And I have 100.5 dollars and 5 pennes."
-}
-```
-
-### POST /update/words - updating words with new one
-
--   example request body JSON:
-
-```
-{
-    "text": "It is a text with #hashtag with 2 #one. 1.6. Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "words": "with,and,the",
-    "newWord": "!!!",
-}
-```
-
--   example response JSON:
-
-```
-{
-    "text": "It is a text !!! #hashtag !!! 2 #one. 1.6 Even !!! !!! third one #forallworld. And I have 100.5 dollars !!! 5 pennies.",
-    "words": "with,and,the",
-    "newWord": "!!!"
-}
-```
-
-### POST /update/words - removing words
-
--   example request body JSON:
-
-```
-{
-    "text": "It is a text with #hashtag with 2 #one. 1.6 ass Even with the third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "words": "with,and,the"
-}
-```
-
--   example response JSON:
-
-```
-{
-    "text": "It is a text with #hashtag with 2 #one. 1.6 ass Even with  third one #forallworld. And I have 100.5 dollars and 5 pennies.",
-    "words": "with,and,the",
+    "keywords": "is, a",
+    "text": "Th   smple text."
 }
 ```
 
 ## TODO:
-
--   units tests
--   netlify modification for deploy -- last step before publish
