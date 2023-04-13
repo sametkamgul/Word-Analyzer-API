@@ -78,12 +78,12 @@ const findText = (text, searchKeywords) => {
 };
 
 /**
- * finds a hashtag if the given text has one or more
+ * finds hashtags if the given text has one or more
  *
  * @param {String} text
  * @return {Array} - returns Array of hashtags with and without dash('#') character
  */
-const findHashtag = (text) => {
+const findHashtags = (text) => {
     let result = {
         withHashChar: [],
         withoutHashChar: [],
@@ -112,12 +112,12 @@ const findHashtag = (text) => {
 };
 
 /**
- * finds a mention(@) if the given text has one or more
+ * finds mentions(@) if the given text has one or more
  *
  * @param {String} text
  * @return {Array} - returns Array of mentions with and without at('@') character
  */
-const findMention = (text) => {
+const findMentions = (text) => {
     let result = {
         withAtChar: [],
         withoutAtChar: [],
@@ -147,6 +147,6 @@ const findMention = (text) => {
 
 module.exports = {
     findText,
-    findHashtag,
-    findMention,
+    findHashtags,
+    findMentions,
 };

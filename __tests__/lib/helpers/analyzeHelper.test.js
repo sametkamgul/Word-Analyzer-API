@@ -83,11 +83,11 @@ test('analyze should return all attribute object for empty config', async () => 
                 text: 1,
             },
         },
-        hashtag: {
+        hashtags: {
             withHashChar: [],
             withoutHashChar: [],
         },
-        mention: {
+        mentions: {
             withAtChar: [],
             withoutAtChar: []
         },
@@ -234,12 +234,12 @@ test('analyze should return an object for requested config:words', async () => {
     expect(actualResult).toEqual(expectedResult);
 });
 
-test('analyze should return an object for requested config:hashtag', async () => {
+test('analyze should return an object for requested config:hashtags', async () => {
     let text = 'this is a text with #sample hashtag.';
-    let config = 'hashtag';
+    let config = 'hashtags';
     let searchKeywords = '';
     let expectedResult = {
-        hashtag: {
+        hashtags: {
             withHashChar: ['#sample'],
             withoutHashChar: ['sample'],
         },
@@ -254,12 +254,12 @@ test('analyze should return an object for requested config:hashtag', async () =>
     expect(actualResult).toEqual(expectedResult);
 });
 
-test('analyze should return an object for requested config:mention', async () => {
+test('analyze should return an object for requested config:mentions', async () => {
     let text = 'this is a text with @sample mention.';
-    let config = 'mention';
+    let config = 'mentions';
     let searchKeywords = '';
     let expectedResult = {
-        mention: {
+        mentions: {
             withAtChar: ['@sample'],
             withoutAtChar: ['sample'],
         },

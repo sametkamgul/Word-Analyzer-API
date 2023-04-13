@@ -21,8 +21,8 @@ const analyze = async (text, searchKeywords, config) => {
     let configArr = [];
     let specialCharsArray = [];
     let specialCharsMap = {};
-    let hashtag = {};
-    let mention = {};
+    let hashtags = {};
+    let mentions = {};
 
     // config null check
     if (!generalHelper.isEmpty(config)) {
@@ -91,17 +91,17 @@ const analyze = async (text, searchKeywords, config) => {
     }
 
     // root object - hashtag check
-    if (generalHelper.isParamRequested(config, analyzeResponseParams.hashtag)) {
-        hashtag = searchHelper.findHashtag(text);
+    if (generalHelper.isParamRequested(config, analyzeResponseParams.hashtags)) {
+        hashtags = searchHelper.findHashtags(text);
 
-        result.hashtag = hashtag;
+        result.hashtags = hashtags;
     }
 
     // root object - mention check
-    if (generalHelper.isParamRequested(config, analyzeResponseParams.mention)) {
-        mention = searchHelper.findMention(text);
+    if (generalHelper.isParamRequested(config, analyzeResponseParams.mentions)) {
+        mentions = searchHelper.findMentions(text);
 
-        result.mention = mention;
+        result.mentions = mentions;
     }
 
     // root object - sentences check

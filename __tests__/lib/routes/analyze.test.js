@@ -121,11 +121,11 @@ test('POST /analyze returns 200 with results', async () => {
                 10.1: 1,
             },
         },
-        hashtag: {
+        hashtags: {
             withHashChar: [],
             withoutHashChar: [],
         },
-        mention: {
+        mentions: {
             withAtChar: [],
             withoutAtChar: [],
         },
@@ -164,5 +164,19 @@ test('GET /analyze returns 405', async () => {
     };
 
     expect(actualResponse.status).toBe(405);
+    expect(actualResponse.body).toEqual(expectedResponse); // replace with the expected length of the list of users
+});
+
+test('POST /analyze returns 400 with empty request', async () => {
+    const actualResponse = await request(app).post(
+        '/.netlify/functions/api/analyze'
+    );
+
+    const expectedResponse = {
+        status: 'error',
+        message: '<text> parameter is missing in the request of the body!',
+    };
+
+    expect(actualResponse.status).toBe(400);
     expect(actualResponse.body).toEqual(expectedResponse); // replace with the expected length of the list of users
 });

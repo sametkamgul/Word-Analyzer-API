@@ -9,8 +9,8 @@
 -   words map (number of repitition of words)
 -   characters map (number of repitition of character)
 -   used special characters
--   hashtag extraction
--   mention extraction
+-   hashtags extraction
+-   mentions extraction
 -   finding a character or word in the text.
 -   array of words
 -   array of sentences
@@ -53,8 +53,8 @@ npm run test:coverage
     language: {},       // language of the given text
     characters: {},     // characters found in the given text
     words: {},      // words found in the given text
-    hashtag: {},        // hashtag found in the given text
-    mention: {},        // mention found in the given text
+    hashtags: {},        // hashtags found in the given text
+    mentions: {},        // mentions found in the given text
     sentences: {},      // sentences found in the given text
     search: {},     // search results found in the given text
     numbers: {}     // numbers found in the given text
@@ -103,7 +103,7 @@ npm run test:coverage
 }
 ```
 
-### hashtag object detail
+### hashtags object detail
 
 ```
 {
@@ -112,7 +112,7 @@ npm run test:coverage
 }
 ```
 
-### mention object detail
+### mentions object detail
 
 ```
 {
@@ -580,7 +580,7 @@ numbers
             "forallworld"
         ]
     },
-    "mention": {
+    "mentions": {
         "withAtChar": [],
         "withoutAtChar": []
     },

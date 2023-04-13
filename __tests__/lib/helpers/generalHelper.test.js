@@ -133,7 +133,7 @@ test('getCharacters should have an array of length: 1', () => {
     expect(actualResult).toHaveLength(expectedResult.length);
 });
 
-test('getWordsMap should return an valid map of object', () => {
+test('getWordsMap should return valid map of object', () => {
     let data = 'this is an text';
     let expectedResult = {
         an: 1,
@@ -147,7 +147,7 @@ test('getWordsMap should return an valid map of object', () => {
     expect(actualResult).toEqual(expectedResult);
 });
 
-test('getCharactersMap should return an valid map of object', () => {
+test('getCharactersMap should return valid map of object', () => {
     let data = 'this is an text';
     let expectedResult = {
         a: 1,
@@ -165,7 +165,7 @@ test('getCharactersMap should return an valid map of object', () => {
     expect(actualResult).toEqual(expectedResult);
 });
 
-test('getSentences should return an valid array', () => {
+test('getSentences should return valid array', () => {
     let data = 'This is a sentence. This is another sentence.';
     let expectedResult = ['This is a sentence', 'This is another sentence'];
 
@@ -174,7 +174,7 @@ test('getSentences should return an valid array', () => {
     expect(actualResult).toEqual(expectedResult);
 });
 
-test('findIntegers should return an valid array', () => {
+test('findIntegers should return valid array-multiple', () => {
     let data = 'this text has 100 integer';
     let expectedResult = [100];
 
@@ -183,7 +183,7 @@ test('findIntegers should return an valid array', () => {
     expect(actualResult).toEqual(expectedResult);
 });
 
-test('findFloats should return an valid array', () => {
+test('findFloats should return valid array', () => {
     let data = 'this text has 123.45 float';
     let expectedResult = [123.45];
 
